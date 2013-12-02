@@ -18,9 +18,11 @@ public class Coordinates {
         return y;
     }
 
-    public boolean equals(Object o)
-    {
-        Coordinates c = (Coordinates) o;
-        return x == c.getX && y == c.getY;
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Coordinates) {
+            Coordinates c = (Coordinates) o;
+            return x == c.getX() && y == c.getY();
+        } else return false;
     }
 }
