@@ -17,4 +17,10 @@ public class Coordinates {
     public int getY() {
         return y;
     }
+
+    public boolean equals(Object o)
+    {
+        Coordinates c = (Coordinates) o;
+        return x == c.getX && y == c.getY;
+    }
 }
