@@ -5,8 +5,8 @@ public enum Land {
 
     Terre(1),
     Roche(2),
-    Sable(4),
     Boue(3),
+    Sable(4),
     Infranchissable(0);
 
     public final int coefficient;
