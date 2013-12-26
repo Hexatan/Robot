@@ -22,5 +22,8 @@ public class RoadBook {
         return instructionIterator.next();
     }
 
-
+    public List<Instruction> getInstructions()
+    {
+        return instructions;
+    }
 }

@@ -97,4 +97,9 @@ public class Robot {
         setRoadBook(calculateRoadBook(direction, position, destination, new ArrayList<Instruction>()));
     }
 
+    public  RoadBook getRoadBook()
+    {
+        return roadBook;
+    }
+
 }
