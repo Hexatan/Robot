@@ -6,8 +6,10 @@
  * To change this template use File | Settings | File Templates.
  */
 
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.Assert;
+import org.junit.rules.ExpectedException;
 import robot.Battery;
 import robot.InsufficientChargeException;
 
@@ -28,7 +30,6 @@ public class BatteryTestUnit {
         b.charge();
         Assert.assertTrue(b.getChargeLevel() > chargeLevel);
     }
-
     @Test
     public void testUse()
     {
@@ -40,11 +41,16 @@ public class BatteryTestUnit {
             e.printStackTrace();
         }
         Assert.assertTrue(b.getChargeLevel() < chargeLevel);
-        try {
-            b.use(55);
-        } catch (InsufficientChargeException e) {
-            Assert.assertTrue(b.getChargeLevel() < 55);
-        }
+    }
+
+    @Rule
+    public ExpectedException exception = ExpectedException.none();
+
+    @Test
+    public void testUseExcpet() throws InsufficientChargeException {
+        exception.expect(InsufficientChargeException.class);
+        Battery b = new Battery();
+        b.use(200000000);
     }
 
     @Test
