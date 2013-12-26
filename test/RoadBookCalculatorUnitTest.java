@@ -126,10 +126,9 @@ public class RoadBookCalculatorUnitTest {
     public void testMeilleurParcour()
     {
         Random rand = Mockito.mock(Random.class);
-        // On s'assure que le terrain et toujours franchissable.
-        Mockito.when(rand.nextInt(Land.CountLand())).thenReturn(0);
         LandSensor sensor = new LandSensor(rand);
 
+        // On crée un chemin de terre.
         Mockito.when(rand.nextInt(Land.CountLand())).thenReturn(0);
 
         try {
@@ -146,6 +145,7 @@ public class RoadBookCalculatorUnitTest {
             inaccessibleCoordinate.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
 
+        // Tout le reste n'est que sable
         Mockito.when(rand.nextInt(Land.CountLand())).thenReturn(3);
 
         Robot r = new Robot();
